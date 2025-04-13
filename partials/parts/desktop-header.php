@@ -6,5 +6,4 @@
 ?>
 
 <div id="desktop-header">
-	<!-- Write your code here -->
 </div>

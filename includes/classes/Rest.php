@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Rest API
  * this class is used to register rest routes and handle requests
@@ -7,20 +8,55 @@
 
 namespace Cyan\Theme\Classes;
 
-class Rest {
+use WP_REST_Request;
+use WP_REST_Response;
+
+class Rest
+{
 
 	protected static $namespace = 'cyn/v1';
 
-	public static function init() {
-		add_action( 'rest_api_init', [ __CLASS__, 'registerRoutes' ] );
+	public static function init()
+	{
+		add_action('rest_api_init', [__CLASS__, 'registerRoutes']);
 	}
 
-	public static function registerRoutes() {
-		self::makeRoute( '/test', 'GET', [ __CLASS__, 'test' ] );
+	public static function registerRoutes()
+	{
+		self::makeRoute('/form', 'POST', [__CLASS__, 'createForm']);
 	}
 
-	public static function test() {
-		return 'test';
+	public static function createForm(WP_REST_Request $request)
+	{
+
+		$body = $request->get_body_params();
+
+		$name = sanitize_text_field($body['name']);
+		$last_name = sanitize_text_field($body['last_name']);
+		$phone = sanitize_text_field($body['phone']);
+		$keywords = sanitize_text_field($body['keywords']);
+		$address_website = sanitize_text_field($body['address_website']);
+		$budget = sanitize_text_field($body['budget']);
+
+		$new_post = wp_insert_post([
+			'post_type' => 'form',
+			'post_title' => $name . ' ' . $last_name,
+			'post_status' => 'private',
+			'meta_input' => [
+				'_name' => $name,
+				'_last_name' => $last_name,
+				'_phone' => $phone,
+				'_keywords' => $keywords,
+				'_address_website' => $address_website,
+				'_budget' => $budget,
+			]
+		]);
+
+		if (is_wp_error($new_post)) {
+			return new WP_REST_Response('Something went wrong, please try again!', 500);
+		}
+
+		return new WP_REST_Response('form created successfully!');
 	}
 
 	/**
@@ -31,11 +67,12 @@ class Rest {
 	 * @param callable $permission_callback permission callback function
 	 * @return void
 	 */
-	private static function makeRoute( $route, $methods, $callback, $permission_callback = '__return_true' ) {
-		register_rest_route( self::$namespace, $route, [ 
+	private static function makeRoute($route, $methods, $callback, $permission_callback = '__return_true')
+	{
+		register_rest_route(self::$namespace, $route, [
 			'methods' => $methods,
 			'callback' => $callback,
 			'permission_callback' => $permission_callback
-		] );
+		]);
 	}
 }

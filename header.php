@@ -6,12 +6,10 @@
  * @package CyanTheme
  */
 
-use Cyan\Theme\Helpers\Templates;
 
-$render_template = $args['render_template'] ?? true;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 
 	<head>
 		<meta charset="UTF-8">
@@ -20,16 +18,7 @@ $render_template = $args['render_template'] ?? true;
 		<?php wp_head(); ?>
 	</head>
 
-	<body>
+	<body <?php body_class( 'overflow-x-hidden' ); ?>>
 		<?php wp_body_open(); ?>
 
-		<?php if ( $render_template ) : ?>
-			<header>
-				<div class="hidden lg:block">
-					<?php Templates::getPart( 'desktop-header' ); ?>
-				</div>
-				<div class="lg:hidden">
-					<?php Templates::getPart( 'mobile-header' ); ?>
-				</div>
-			</header>
-		<?php endif; ?>
+		

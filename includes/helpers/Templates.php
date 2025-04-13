@@ -9,11 +9,17 @@ namespace Cyan\Theme\Helpers;
 
 class Templates {
 
-	public static function getPart( $partial ) {
-		get_template_part( 'partials/parts/' . $partial );
+	public static function getPart( $partial, $args = [] ) {
+		get_template_part( 'partials/parts/' . $partial, null, $args );
+	}
+	public static function getCard( $partial, $args = [] ) {
+		get_template_part( 'partials/cards/' . $partial, null, $args );
+	}
+	public static function getPage( $partial, $args = [] ) {
+		get_template_part( 'partials/pages/' . $partial, null, $args );
 	}
 
-	public static function getCard( $partial ) {
-		get_template_part( 'partials/cards/' . $partial );
+	public static function getPopup( $partial, $args = [] ) {
+		get_template_part( 'partials/popups/' . $partial, null, $args );
 	}
 }

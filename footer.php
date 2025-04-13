@@ -8,14 +8,12 @@
 
 use Cyan\Theme\Helpers\Templates;
 
-$render_template = $args['render_template'] ?? true;
+
+Templates::getPopup( 'video' );
+Templates::getPopup( 'backdrop' );
+
 ?>
 
-<?php if ( $render_template ) : ?>
-	<footer>
-		<?php Templates::getPart( 'site-footer' ); ?>
-	</footer>
-<?php endif; ?>
 
 <div id="wp-footer">
 	<?php wp_footer(); ?>
