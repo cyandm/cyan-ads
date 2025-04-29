@@ -97,25 +97,18 @@ function isVideoActive($video)
 									</div>
 								</div>
 
+
 								<!-- Button -->
-								<div class="bg-white/30 rounded-xl flex justify-between items-center gap-3 px-2 py-[6px]">
-									<!-- Time -->
-									<div class="text-white text-base">
-										2:23
-									</div>
-
-									<!-- Button -->
-									<div>
-										<button
-											class="PopUpOpener rounded-full flex gap-1 transition-all duration-300 cursor-pointer bg-[#E8E9EA] hover:bg-[#D0D1D2]">
-											<div class="size-10">
-												<?php Icon::print('Play') ?>
-											</div>
-										</button>
-									</div>
-
-
+								<div>
+									<button
+										class="PopUpOpener rounded-full flex gap-1 transition-all duration-300 cursor-pointer bg-[#E8E9EA] hover:bg-[#D0D1D2]">
+										<div class="size-10">
+											<?php Icon::print('Play') ?>
+										</div>
+									</button>
 								</div>
+
+
 							</div>
 
 

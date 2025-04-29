@@ -11210,24 +11210,6 @@
     });
   }
 
-  // assets/js/functions/show-more-btn.js
-  function show_more_btn() {
-    if (document.querySelector(".parent-buttons")) {
-      const buttons_parent = document.querySelector(".parent-buttons");
-      const div_buttons = document.querySelector(".div-buttons");
-      const parent_height = div_buttons.clientHeight;
-      const buttons_handler = document.querySelector(".handler_show_more_btn");
-      buttons_handler.addEventListener("click", (e2) => {
-        buttons_parent.style.height = "".concat(parent_height, "px");
-        e2.preventDefault();
-        setTimeout(() => {
-          buttons_parent.style.transition = "height 0.5s ease";
-        }, 10);
-      });
-    }
-  }
-  show_more_btn();
-
   // node_modules/swiper/shared/ssr-window.esm.mjs
   function isObject(obj) {
     return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
@@ -21228,7 +21210,6 @@
   ThemePlyr();
   Popups();
   PhotoSwipeTheme();
-  show_more_btn();
   footsteps_animation();
   Tabs();
 })();

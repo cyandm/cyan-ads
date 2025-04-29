@@ -293,6 +293,10 @@ class ACF
 			'width' => '50%'
 		]);
 
+		$acfGroup->basicFields->addText('view_all_btn_link', 'لینک مشاهده همه', [
+			'width' => '50%'
+		]);
+
 		for ($i = 1; $i <= 24; $i++) {
 
 			$acfGroup->contentFields->addImage("desktop_sample_card_image_$i", "عکس کارت دسکتاپ $i", [

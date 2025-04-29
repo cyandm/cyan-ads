@@ -95,7 +95,7 @@ for ($i = 1; $i <= 24; $i++) {
 
             <div class="flex flex-row justify-end">
 
-                <button class="handler_show_more_btn bg-white rounded-lg p-1 border-b-4 border-[#3CC9F5] border-r-4 text-[#00458A] text-[20px] py-3 px-4 flex flex-row gap-2 items-center justify-center">
+                <a href="<?php echo get_field('view_all_btn_link') ?>" class="handler_show_more_btn cursor-pointer bg-white rounded-lg p-1 border-b-4 border-[#3CC9F5] border-r-4 text-[#00458A] text-[20px] py-3 px-4 flex flex-row gap-2 items-center justify-center">
 
                     <div class="size-6 text-[#00458A] ">
                         <?php Icon::print('Notebook,-Notepad') ?>
@@ -103,7 +103,7 @@ for ($i = 1; $i <= 24; $i++) {
 
                     <?php echo get_field('view_all_btn_title') ?>
 
-                </button>
+                </a>
 
             </div>
         </div>
@@ -134,7 +134,7 @@ for ($i = 1; $i <= 24; $i++) {
             </div>
 
             <div class="w-full">
-                <button class="handler_show_more_btn w-full text-[#00458A] text-[20px] py-3 px-4 flex flex-row gap-2 items-center justify-center bg-white rounded-lg p-1 border-b-4 border-[#3CC9F5] border-r-4">
+                <a href="<?php echo get_field('view_all_btn_link') ?>" class="handler_show_more_btn cursor-pointer w-full text-[#00458A] text-[20px] py-3 px-4 flex flex-row gap-2 items-center justify-center bg-white rounded-lg p-1 border-b-4 border-[#3CC9F5] border-r-4">
 
                     <div class="size-6 text-[#00458A]">
                         <?php Icon::print('Notebook,-Notepad') ?>
@@ -142,7 +142,7 @@ for ($i = 1; $i <= 24; $i++) {
 
                     <?php echo get_field('view_all_btn_title') ?>
 
-                </button>
+                </a>
             </div>
         </div>
     </div>
