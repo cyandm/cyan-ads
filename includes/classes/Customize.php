@@ -24,6 +24,7 @@ class Customize
 		self::$wpCustomize = $wp_customize;
 		self::registerPanelPopUpForm();
 		self::registerPanelCustomCode();
+		self::registerPanelHeader();
 	}
 
 	private static function addControl($section, $type, $id, $label, $description = '')
@@ -64,6 +65,53 @@ class Customize
 		}
 	}
 
+	private static function registerPanelHeader()
+	{
+		self::$wpCustomize->add_panel(
+			'headerItems',
+			[
+				'title' => 'تنظیمات هدر',
+				'priority' => 1
+			]
+		);
+
+		self::$wpCustomize->add_section(
+			'headerLogo',
+			[
+				'title' => 'لوگوی هدر',
+				'priority' => 1,
+				'panel' => 'headerItems'
+			]
+		);
+
+		self::addControl('headerLogo', 'file', "cyn_header_logo", "لوگوی هدر");
+
+		self::$wpCustomize->add_section(
+			'header_phone_call',
+			[
+				'title' => 'تلفن',
+				'priority' => 1,
+				'panel' => 'headerItems'
+			]
+		);
+
+		self::addControl('header_phone_call', 'text', "cyn_header_phone_number", "شماره تلفن");
+
+		self::$wpCustomize->add_section(
+			'header_items_menu',
+			[
+				'title' => 'آیتم های منو',
+				'priority' => 1,
+				'panel' => 'headerItems'
+			]
+		);
+
+		for ($num = 1; $num <= 8; $num++) {
+			self::addControl('header_items_menu', 'text', "cyn_header_menu_title_" . $num, "تایتل آیتم" . $num);
+			self::addControl('header_items_menu', 'url', "cyn_header_menu_link_" . $num, "لینک آیتم" . $num);
+		}
+	}
+
 	private static function registerPanelPopUpForm()
 	{
 		self::$wpCustomize->add_panel(
@@ -95,10 +143,8 @@ class Customize
 		);
 
 		self::addControl('form_phone_call', 'text', "cyn_form_phone_title", "تایتل شماره تماس");
-		
+
 		self::addControl('form_phone_call', 'text', "cyn_form_phone_number", "شماره تماس");
-
-
 	}
 	private static function registerPanelCustomCode()
 	{

@@ -13,7 +13,16 @@ use Cyan\Theme\Helpers\Templates;
 Templates::getPopup('video');
 Templates::getPopup('backdrop');
 
-$address_text = get_field('seo_address') ?? '';
+// پیدا کردن صفحه اصلی که از قالب seo-ads استفاده می‌کند
+$main_page = get_posts([
+	'post_type' => 'page',
+	'fields' => 'ids',
+	'nopaging' => true,
+	'meta_key' => '_wp_page_template',
+	'meta_value' => 'templates/seo-ads.php'
+]);
+
+$address_text = get_field('seo_address', $main_page[0]) ?? '';
 
 
 ?>
@@ -40,7 +49,7 @@ $address_text = get_field('seo_address') ?? '';
 
 							<?php for ($i = 1; $i <= 8; $i++): ?>
 
-								<?php $footer_menu_items = get_field("footer_menu_$i"); ?>
+								<?php $footer_menu_items = get_field("footer_menu_$i", $main_page[0]); ?>
 
 								<?php if ($footer_menu_items): ?>
 
@@ -65,8 +74,8 @@ $address_text = get_field('seo_address') ?? '';
 								<li class="text-[#FFA5A5] text-xl font-medium"> شماره تماس ها</li>
 								<?php for ($i = 1; $i <= 4; $i++) : ?>
 									<li class="">
-										<a href="tel:<?php echo get_field("seo_phone_$i") ?>">
-											<?php echo get_field("seo_phone_$i") ?>
+										<a href="tel:<?php echo get_field("seo_phone_$i", $main_page[0]) ?>">
+											<?php echo get_field("seo_phone_$i", $main_page[0]) ?>
 										</a>
 									</li>
 								<?php endfor; ?>
@@ -74,9 +83,9 @@ $address_text = get_field('seo_address') ?? '';
 								<li class="text-[#FFA5A5] text-xl font-medium max-md:hidden">شبکه های اجتماعی</li>
 								<div class="flex items-center gap-2 max-md:hidden">
 									<?php for ($i = 1; $i <= 3; $i++) : ?>
-										<a href="<?php echo get_field("seo_social_link_$i") ?>"
+										<a href="<?php echo get_field("seo_social_link_$i", $main_page[0]) ?>"
 											class="block">
-											<?php echo wp_get_attachment_image(get_field("seo_social_$i"), 'full') ?>
+											<?php echo wp_get_attachment_image(get_field("seo_social_$i", $main_page[0]), 'full') ?>
 										</a>
 									<?php endfor; ?>
 								</div>
@@ -93,9 +102,9 @@ $address_text = get_field('seo_address') ?? '';
 							<p class="text-[#FFA5A5] text-xl font-medium">شبکه های اجتماعی</p>
 							<div class="flex items-center gap-2 mt-5">
 								<?php for ($i = 1; $i <= 3; $i++) : ?>
-									<a href="<?php echo get_field("seo_social_link_$i") ?>"
+									<a href="<?php echo get_field("seo_social_link_$i", $main_page[0]) ?>"
 										class="block">
-										<?php echo wp_get_attachment_image(get_field("seo_social_$i"), 'full') ?>
+										<?php echo wp_get_attachment_image(get_field("seo_social_$i", $main_page[0]), 'full') ?>
 									</a>
 								<?php endfor; ?>
 							</div>
@@ -115,9 +124,9 @@ $address_text = get_field('seo_address') ?? '';
 
 							<div class="flex items-center gap-2 max-md:hidden">
 								<?php for ($i = 1; $i <= 4; $i++) : ?>
-									<a href="<?php echo get_field("seo_address_map_link_$i") ?>"
+									<a href="<?php echo get_field("seo_address_map_link_$i", $main_page[0]) ?>"
 										class="block">
-										<?php echo wp_get_attachment_image(get_field("seo_address_map_$i"), 'full') ?>
+										<?php echo wp_get_attachment_image(get_field("seo_address_map_$i", $main_page[0]), 'full') ?>
 									</a>
 								<?php endfor; ?>
 							</div>
@@ -131,9 +140,9 @@ $address_text = get_field('seo_address') ?? '';
 
 							<div class="flex items-center gap-2 md:hidden">
 								<?php for ($i = 1; $i <= 4; $i++) : ?>
-									<a href="<?php echo get_field("seo_address_map_link_$i") ?>"
+									<a href="<?php echo get_field("seo_address_map_link_$i", $main_page[0]) ?>"
 										class="block">
-										<?php echo wp_get_attachment_image(get_field("seo_address_map_$i"), 'full') ?>
+										<?php echo wp_get_attachment_image(get_field("seo_address_map_$i", $main_page[0]), 'full') ?>
 									</a>
 								<?php endfor; ?>
 							</div>
@@ -148,7 +157,7 @@ $address_text = get_field('seo_address') ?? '';
 
 			<div class="mt-8 absolute -bottom-[70%] -left-[8%] max-xl:-bottom-[70%] max-xl:-left-[22%] max-lg:-left-[254px] max-md:-left-[165px] max-md:bottom-[32%] -scale-y-100">
 				<div class="w-full">
-					<?php echo wp_get_attachment_image(get_field("seo_footer_bg"), 'full', false, ['class' => 'animate-[spin_8s_linear_infinite] duration-500 max-md:w-[318px] max-lg:w-[475px] max-2xlg:w-[460px]']) ?>
+					<?php echo wp_get_attachment_image(get_field("seo_footer_bg", $main_page[0]), 'full', false, ['class' => 'animate-[spin_8s_linear_infinite] duration-500 max-md:w-[318px] max-lg:w-[475px] max-2xlg:w-[460px]']) ?>
 				</div>
 			</div>
 		</div>

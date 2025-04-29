@@ -9,6 +9,8 @@ for ($i = 1; $i <= 12; $i++) {
 }
 
 $social_link = get_field('social_link');
+
+use Cyan\Theme\Helpers\Icon;
 ?>
 
 <?php if (!empty($social_images)): ?>
@@ -19,7 +21,7 @@ $social_link = get_field('social_link');
 
             <div class="flex justify-between items-center">
 
-                <div class="text-xl font-semibold md:text-4xl md:font-bold">شبکه های اجتماعی</div>
+                <div class="text-2xl font-semibold md:text-4xl md:font-bold">جادوی رشد در اینستاگرام</div>
 
                 <?php if ($social_link): ?>
 
@@ -27,10 +29,28 @@ $social_link = get_field('social_link');
 
                 <?php endif; ?>
 
+                <div class="flex gap-2">
+
+                    <button id="socialPrev"
+                        class="bg-transparent p-3 border border-white cursor-pointer">
+                        <div class="text-white size-4">
+                            <?php icon::print('Arrow,-Right') ?>
+                        </div>
+                    </button>
+
+                    <button id="socialNext"
+                        class="bg-transparent p-3 border border-white cursor-pointer">
+                        <div class="text-white size-4">
+                            <?php icon::print('Left-1') ?>
+                        </div>
+                    </button>
+
+                </div>
+
             </div>
 
             <swiper-container slides-per-view="auto" space-between="5" loop="true" autoplay="true" pagination="false"
-                navigation="false" class="w-full">
+                navigation="true" navigation-next-el="#socialNext" navigation-prev-el="#socialPrev" class="w-full">
 
                 <?php foreach ($social_images as $social_image): ?>
 

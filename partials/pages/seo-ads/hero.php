@@ -12,15 +12,20 @@ $main_title_mobile = get_field('main_title_mobile');
 $sub_title = get_field('sub_title');
 $btn_text = get_field('btn_title');
 $title_analyze_popup = get_field('title_analyze_popup');
+$subtitle_analyze_popup = get_field('subtitle_analyze_popup');
 ?>
 
 <section class="bg-[#3CC9F5] opacity-0 z-50 fixed inset-0 w-1/2 max-xl:w-3/4 max-sm:w-[95%] h-fit m-auto pointer-events-none data-[active='true']:opacity-100 data-[active='true']:pointer-events-auto duration-500 rounded-lg border-b-4 border-[#3CC9F5] border-r-4" modal data-modal-name="analyze-form-modal" data-active="false">
 
 	<div class="bg-[#002864] rounded-lg px-8 max-md:px-4 pt-10 max-md:pt-6 pb-9 max-md:pb-7 text-white">
 
-		<div class="flex justify-between items-center">
+		<div class="flex justify-between">
 
-			<p class="font-normal text-4xl max-md:text-2xl"><?php echo $title_analyze_popup ?></p>
+			<div class="flex flex-col gap-3">
+				<p class="font-medium text-4xl max-md:text-2xl"><?php echo $title_analyze_popup ?></p>
+				<p class="font-normal text-xl max-md:text-base"><?php echo $subtitle_analyze_popup ?></p>
+			</div>
+
 
 			<div class="size-11 text-[#002864] bg-white border-r-2 border-b-2 border-[#3CC9F5] rounded-xl cursor-pointer" modal-closer data-modal-name="analyze-form-modal">
 
@@ -157,8 +162,8 @@ $title_analyze_popup = get_field('title_analyze_popup');
 
 				<div class="flex justify-normal items-center bg-white rounded-lg p-3 border-b-4 border-[#3CC9F5] border-r-4 cursor-pointer w-fit" modal-opener data-modal-name="analyze-form-modal">
 					<div class="text-[#00458A] flex items-center gap-2">
-						<div class="size-5 stroke-[1.5px]">
-							<?php Icon::print('Business,-Chart-1') ?>
+						<div class="size-6 stroke-[1.5px]">
+							<?php Icon::print('Notebook,-Notepad') ?>
 						</div>
 						<span>
 							<?php echo $btn_text ?>

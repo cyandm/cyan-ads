@@ -107,3 +107,51 @@
     font-variant-ligatures: discretionary-ligatures;
   }
 }
+
+#footsteps-svg g[id^="Group_"].active {
+  transform-origin: center;
+  animation: footstep-appear 0.8s ease-in-out forwards;
+}
+
+#footsteps-svg g[id^="Group_"].fade-out {
+  animation: footstep-disappear 0.8s ease-in-out forwards;
+}
+
+@keyframes footstep-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes footstep-disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .bg-under-sea {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 11 48 / var(--tw-bg-opacity));
+    background-image: url("../../image/under-sea-mobile.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px) {
+    .bg-under-sea {
+      background-image: url("../../image/under-sea.webp");
+    }
+  }
+}
+
+.swiper-webdesign-level .swiper-button-prev {
+  right: 1000px !important;
+}

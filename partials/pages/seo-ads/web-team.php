@@ -133,7 +133,7 @@ for ($i = 1; $i <= 24; $i++) {
                 </swiper-container>
             </div>
 
-            <div class="w-full max-md:hidden">
+            <div class="w-full">
                 <button class="handler_show_more_btn w-full text-[#00458A] text-[20px] py-3 px-4 flex flex-row gap-2 items-center justify-center bg-white rounded-lg p-1 border-b-4 border-[#3CC9F5] border-r-4">
 
                     <div class="size-6 text-[#00458A]">

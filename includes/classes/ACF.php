@@ -35,6 +35,7 @@ class ACF
 	{
 		self::forSeoAds();
 		self::forDesignAds();
+		self::forPortfolio();
 	}
 
 	private static function forSeoAds()
@@ -75,6 +76,10 @@ class ACF
 
 
 		$acfGroup->basicFields->addText('title_analyze_popup', 'تایتل پاپ آپ فرم آنالیز کسب و کار', [
+			'width' => '50%',
+		]);
+
+		$acfGroup->basicFields->addText('subtitle_analyze_popup', 'ساب تایتل پاپ آپ فرم آنالیز کسب و کار', [
 			'width' => '50%',
 		]);
 
@@ -229,6 +234,25 @@ class ACF
 		]);
 		#endregion
 
+		#region SEO Services
+		$acfGroup->layoutFields->addTab('seo-services', 'انواع خدمات سئو');
+
+		$acfGroup->basicFields->addText('seo_services_title', 'تایتل انواع خدمات', [
+			'width' => '100%'
+		]);
+
+		for ($i = 1; $i <= 4; $i++) {
+
+			$acfGroup->basicFields->addText('seo_services_tab_' . $i, 'تایتل تب ' . $i, [
+				'width' => '50%'
+			]);
+
+			$acfGroup->basicFields->addTextarea('seo_services_content_' . $i, 'محتوا تب ' . $i, [
+				'width' => '50%'
+			]);
+		}
+		#endregion
+
 		#region Videos
 		$acfGroup->layoutFields->addTab("videos", "ویدئوهای آموزشی");
 
@@ -336,14 +360,13 @@ class ACF
 				'width' => '33.3%'
 			]);
 		}
-
 		#endregion
 
 		#region Footer
 
 		$acfGroup->layoutFields->addTab('seo-footer', 'تنظیمات فوتر');
 
-		$acfGroup->contentFields->addImage("seo_footer_bg", "تصویر پس زمینه فوتر", ['width' => '100%']);
+		$acfGroup->contentFields->addImage("seo_footer_bg", "تصویر پس زمینه فوتر", ['width' => '100%'], "seo_footer_bg");
 
 		$acfGroup->layoutFields->addAccordion('footer_menu', 'منو فوتر');
 
@@ -351,28 +374,27 @@ class ACF
 			$acfGroup->relationshipFields->addLink("footer_menu_$i", "منو فوتر: آیتم $i", [], "footer_menu_$i");
 		}
 
-		$acfGroup->layoutFields->addAccordion('address', 'آدرس');
+		$acfGroup->layoutFields->addAccordion('address', 'آدرس', [], 'address');
 
-		$acfGroup->basicFields->addTextarea('seo_address', 'آدرس ', ['width' => '100%']);
-
-		for ($i = 1; $i <= 4; $i++) {
-			$acfGroup->contentFields->addImage("seo_address_map_$i", "تصویر نقشه آدرس $i", ['width' => '50%']);
-			$acfGroup->basicFields->addUrl("seo_address_map_link_$i", "لینک نقشه آدرس $i", ['width' => '50%']);
-		}
-
-		$acfGroup->layoutFields->addAccordion('phone', 'تلفن');
+		$acfGroup->basicFields->addTextarea('seo_address', 'آدرس ', ['width' => '100%'], 'seo_address');
 
 		for ($i = 1; $i <= 4; $i++) {
-			$acfGroup->basicFields->addText("seo_phone_$i", "تلفن $i", ['width' => '50%']);
+			$acfGroup->contentFields->addImage("seo_address_map_$i", "تصویر نقشه آدرس $i", ['width' => '50%'], "seo_address_map_$i");
+			$acfGroup->basicFields->addUrl("seo_address_map_link_$i", "لینک نقشه آدرس $i", ['width' => '50%'], "seo_address_map_link_$i");
 		}
 
-		$acfGroup->layoutFields->addAccordion('social', 'شبکه های اجتماعی');
+		$acfGroup->layoutFields->addAccordion('phone', 'تلفن', [], 'phone');
+
+		for ($i = 1; $i <= 4; $i++) {
+			$acfGroup->basicFields->addText("seo_phone_$i", "تلفن $i", ['width' => '50%'], "seo_phone_$i");
+		}
+
+		$acfGroup->layoutFields->addAccordion('social', 'شبکه های اجتماعی', [], 'phone');
 
 		for ($i = 1; $i <= 3; $i++) {
-			$acfGroup->contentFields->addImage("seo_social_$i", "تصویر شبکه اجتماعی $i", ['width' => '50%']);
-			$acfGroup->basicFields->addUrl("seo_social_link_$i", "لینک شبکه اجتماعی $i", ['width' => '50%']);
+			$acfGroup->contentFields->addImage("seo_social_$i", "تصویر شبکه اجتماعی $i", ['width' => '50%'], "seo_social_$i");
+			$acfGroup->basicFields->addUrl("seo_social_link_$i", "لینک شبکه اجتماعی $i", ['width' => '50%'], "seo_social_link_$i");
 		}
-
 		#endregion
 
 		$acfGroup->setLocation('page_template', '==', 'templates/seo-ads.php');
@@ -386,27 +408,39 @@ class ACF
 		$acfGroup = new AcfGroup();
 
 		#region Header Section
-		$acfGroup->layoutFields->addTab('header', 'هدر');
+		// $acfGroup->layoutFields->addTab('header', 'هدر');
 
-		$acfGroup->basicFields->addText('contact_btn_text_desktop', 'متن دکمه تماس دسکتاپ', ['width' => '50%']);
-		$acfGroup->basicFields->addText('contact_btn_text_mobile', 'متن دکمه تماس موبایل', ['width' => '50%']);
-		$acfGroup->basicFields->addText('contact_btn_phone', 'شماره تماس', ['width' => '50%']);
+		// $acfGroup->basicFields->addText('contact_btn_text_desktop', 'متن دکمه تماس دسکتاپ', ['width' => '50%']);
+		// $acfGroup->basicFields->addText('contact_btn_text_mobile', 'متن دکمه تماس موبایل', ['width' => '50%']);
+		// $acfGroup->basicFields->addText('contact_btn_phone', 'شماره تماس', ['width' => '50%']);
 
-		$acfGroup->contentFields->addImage("image_logo", "لوگو", ['width' => '50%']);
+		// $acfGroup->contentFields->addImage("image_logo", "لوگو", ['width' => '50%']);
 
-		for ($i = 1; $i <= 8; $i++) {
-			$acfGroup->relationshipFields->addLink("menu_header_$i", "منو: آیتم $i", [], "menu_header_$i");
-		}
+		// for ($i = 1; $i <= 8; $i++) {
+		// 	$acfGroup->relationshipFields->addLink("menu_header_$i", "منو: آیتم $i", [], "menu_header_$i");
+		// }
 		#endregion
 
 
-		//hero
+		#region Hero Section
 		$acfGroup->layoutFields->addTab('hero', 'هیرو');
 
 		$acfGroup->contentFields->addImage('hero-image', 'عکس هیرو', ['width' => '50%'], 'hero-image');
 		$acfGroup->contentFields->addImage('hero-image-ribbon', 'عکس نوار هیرو', ['width' => '50%'], 'hero-image-ribbon');
 		$acfGroup->basicFields->addText('hero-short-title', 'تایتل کوتاه هیرو', [], 'hero-short-title');
 		$acfGroup->basicFields->addText('hero-long-title', 'تایتل بلند هیرو', [], 'hero-long-title');
+		#endregion
+
+		#region web design slider
+		$acfGroup->layoutFields->addTab('webdesign_slider', 'اسلایدر مراحل طراحی سایت');
+		$acfGroup->contentFields->addImage('webdesign_slider_img', 'عکس کنار اسلایدر', ['width' => '50%'], 'webdesign_slider_img');
+		$acfGroup->basicFields->addText('webdesign_slider_title', 'تایتل اسلایدر', ['width' => '50%'], 'webdesign_slider_title');
+
+		for ($i = 1; $i <= 8; $i++) {
+			$acfGroup->basicFields->addText("webdesign_slider_level_$i", "عنوان مراحل $i", [], "webdesign_slider_level_$i");
+			$acfGroup->basicFields->addText("webdesign_slider_describtion_$i", "متن مراحل $i", [], "webdesign_slider_describtion_$i");
+		}
+		#endregion
 
 		//social
 		$acfGroup->layoutFields->addTab('social', 'شبکه های اجتماعی');
@@ -452,12 +486,13 @@ class ACF
 		//website
 		$acfGroup->layoutFields->addTab('website', 'طراحی وبسایت');
 
-		$acfGroup->basicFields->addUrl('website_link', 'لینک دکمه مشاهده همه وب سایت (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
+		$acfGroup->basicFields->addText('website_link', 'لینک دکمه مشاهده همه وب سایت (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
 
 		for ($i = 1; $i <= 12; $i++) {
 			$acfGroup->contentFields->addImage("website_image_$i", "عکس وب سایت $i", [], "website_image_$i");
 			$acfGroup->basicFields->addText("website_title_$i", "متن وب سایت $i", [], "website_title_$i");
 			$acfGroup->basicFields->addText("website_description_$i", "متن توضیحات وب سایت $i", [], "website_description_$i");
+			$acfGroup->basicFields->addText("website_preview_$i", "لینک نمونه کار $i", [], "website_description_$i");
 		}
 
 
@@ -473,7 +508,20 @@ class ACF
 			$acfGroup->contentFields->addImage("service_image_$i", "عکس خدمت $i", [], "service_image_$i");
 		}
 
-		//customers
+		#region customer video
+		$acfGroup->layoutFields->addTab('customer_video', 'ویدیو مشتریان');
+
+		$acfGroup->basicFields->addUrl('customer_video_link', 'لینک دکمه مشاهده همه مشتریان (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
+
+		for ($i = 1; $i <= 12; $i++) {
+			$acfGroup->contentFields->addImage("customer_video_image_$i", "عکس کاور ویدیو مشتریان $i", [], "customer_video_image_$i");
+			$acfGroup->contentFields->addFile("customer_video_file_$i", "ویدیو مشتریان $i", [], "customer_video_file_$i");
+			$acfGroup->basicFields->addText("customer_video_name_$i", 'نام مشتری', ['width' => '50%'], "customer_video_name_$i");
+			$acfGroup->basicFields->addText("customer_video_desc_$i", 'شرکت و موسسه/سمت', ['width' => '50%'], "customer_video_desc_$i");
+		}
+		#endregion
+
+		#region customers
 		$acfGroup->layoutFields->addTab('customer', 'مشتری');
 
 		$acfGroup->basicFields->addText('customer_title', 'تایتل مشتری', ['width' => '50%']);
@@ -484,6 +532,32 @@ class ACF
 		for ($i = 1; $i <= 12; $i++) {
 			$acfGroup->contentFields->addImage("customer_image_$i", "عکس مشتری $i", [], "customer_image_$i");
 		}
+		#endregion
+
+		#region instagram
+		$acfGroup->layoutFields->addTab('instagram', 'نمونه کار اینستاگرام');
+
+		$acfGroup->basicFields->addUrl('instagram_link', 'لینک دکمه مشاهده همه نمونه کار اینستاگرام (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
+
+		for ($i = 1; $i <= 12; $i++) {
+			$acfGroup->contentFields->addImage("instagram_image_$i", "عکس پیج $i", [], "instagram_image_$i");
+			$acfGroup->basicFields->addText("instagram_text_$i", "نام پیج $i", [], "instagram_text_$i");
+			$acfGroup->basicFields->addText("instagram_desc_$i", "توضیحات $i", [], "instagram_desc_$i");
+		}
+		#endregion
+
+
+		#region plans
+		$acfGroup->layoutFields->addTab('plans', 'تعرفه ها');
+
+		for ($i = 1; $i <= 4; $i++) {
+			$acfGroup->basicFields->addText("plan_name_$i", "نام تعرفه $i", [], "plan_name_$i");
+			$acfGroup->basicFields->addText("plan_desc_$i", "توضیحات تعرفه $i", [], "plan_desc_$i");
+			$acfGroup->basicFields->addText("plan_price_$i", "مبلغ تعرفه $i", [], "plan_price_$i");
+			$acfGroup->basicFields->addTextarea("plan_ability_$i", "موارد دریافتی $i", [], "plan_ability_$i");
+		}
+		#endregion
+
 
 		//footer
 		$acfGroup->layoutFields->addTab('footer', 'فوتر');
@@ -497,5 +571,23 @@ class ACF
 		$acfGroup->setLocation('page_template', '==', 'templates/design-ads.php');
 
 		$acfGroup->register('home page settings');
+	}
+
+	private static function forPortfolio()
+	{
+		$acfGroup = new AcfGroup();
+
+		$acfGroup->layoutFields->addTab("portfoliotab", "اطلاعات نمونه کار");
+
+		$acfGroup->basicFields->addText('portfolio_description', 'توضیحات نمونه کار', [
+			'width' => '100%',
+		]);
+
+		$acfGroup->contentFields->addImage("portfolio_image_desktop", "عکس تمام صفحه نونه کار دسکتاپ", ['width' => '100%']);
+		$acfGroup->contentFields->addImage("portfolio_image_mobile", "عکس تمام صفحه نونه کار موبایل", ['width' => '100%']);
+
+		$acfGroup->setLocation('post_type', '==', 'portfolio');
+
+		$acfGroup->register('نمونه کار');
 	}
 }

@@ -1,5 +1,5 @@
 {
-  "name": "cyanthemesetup",
+  "name": "cyan-ads",
   "version": "2.0.0",
   "description": "A custom WordPress theme designed to provide a flexible and easy-to-use framework for developers.",
   "main": "index.php",
@@ -16,11 +16,11 @@
   "license": "GPL-2.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cyandm/cyanthemesetup.git"
+    "url": "https://github.com/cyandm/cyan-ads.git"
   },
   "homepage": "https://cyandm.com",
   "bugs": {
-    "url": "https://github.com/cyandm/cyanthemesetup/issues"
+    "url": "https://github.com/cyandm/cyan-ads/issues"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

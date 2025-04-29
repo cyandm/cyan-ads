@@ -21137,6 +21137,91 @@
   var import_htmx = __toESM(require_htmx_min());
   window.htmx = require_htmx_min();
 
+  // assets/js/functions/footsteps-animation.js
+  function footsteps_animation() {
+    if (document.querySelector("#footsteps-svg")) {
+      document.addEventListener("DOMContentLoaded", function() {
+        const groups = document.querySelectorAll('#footsteps-svg g[id^="Group_"]');
+        let currentStep = 0;
+        const trailLength = 2;
+        const fadeDelay = 2e3;
+        let stepsHistory = [];
+        groups.forEach((group) => {
+          group.style.opacity = 0;
+          group.classList.remove("active");
+          group.classList.remove("fade-out");
+        });
+        function animateNextStep() {
+          stepsHistory.push(currentStep);
+          groups[currentStep].style.opacity = "";
+          groups[currentStep].classList.add("active");
+          if (stepsHistory.length > trailLength) {
+            const stepToFade = stepsHistory.shift();
+            setTimeout(() => {
+              groups[stepToFade].classList.remove("active");
+              groups[stepToFade].classList.add("fade-out");
+              setTimeout(() => {
+                groups[stepToFade].classList.remove("fade-out");
+                groups[stepToFade].style.opacity = 0;
+              }, 2e3);
+            }, fadeDelay);
+          }
+          currentStep = (currentStep + 1) % groups.length;
+          setTimeout(animateNextStep, 450);
+        }
+        animateNextStep();
+      });
+    }
+  }
+  footsteps_animation();
+
+  // assets/js/functions/tabs.js
+  function Tabs() {
+    const tabsContainer = document.getElementById("servicesTabs");
+    if (!tabsContainer) return;
+    const tabButtons = tabsContainer.querySelectorAll("button[data-tab]");
+    const tabContents = tabsContainer.querySelectorAll(
+      ".tab-content > div[data-tab]"
+    );
+    tabContents.forEach((content, index) => {
+      if (index === 0) {
+        content.classList.add("opacity-100");
+        content.classList.remove("opacity-0");
+        content.style.pointerEvents = "auto";
+      } else {
+        content.classList.add("opacity-0");
+        content.classList.remove("opacity-100");
+        content.style.pointerEvents = "none";
+      }
+    });
+    if (tabButtons.length > 0) {
+      tabButtons[0].classList.add("bg-white", "text-[#000A30]");
+      tabButtons[0].classList.replace("text-white", "text-[#000A30]");
+    }
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("bg-white");
+          btn.classList.replace("text-[#000A30]", "text-white");
+        });
+        button.classList.add("bg-white");
+        button.classList.replace("text-white", "text-[#000A30]");
+        tabContents.forEach((content) => {
+          if (content.getAttribute("data-tab") === tabId) {
+            content.classList.remove("opacity-0");
+            content.classList.add("opacity-100");
+            content.style.pointerEvents = "auto";
+          } else {
+            content.classList.remove("opacity-100");
+            content.classList.add("opacity-0");
+            content.style.pointerEvents = "none";
+          }
+        });
+      });
+    });
+  }
+
   // assets/js/index.js
   swiper_default();
   Modals();
@@ -21144,6 +21229,8 @@
   Popups();
   PhotoSwipeTheme();
   show_more_btn();
+  footsteps_animation();
+  Tabs();
 })();
 /*! Bundled license information:
 

@@ -10,6 +10,8 @@ import { Popups } from "./functions/popups";
 import { show_more_btn } from "./functions/show-more-btn";
 import swiper from "./functions/swiper";
 import "./functions/htmx";
+import { footsteps_animation } from "./functions/footsteps-animation";
+import { Tabs } from "./functions/tabs";
 
 swiper();
 Modals();
@@ -17,3 +19,5 @@ ThemePlyr();
 Popups();
 PhotoSwipeTheme();
 show_more_btn();
+footsteps_animation();
+Tabs();

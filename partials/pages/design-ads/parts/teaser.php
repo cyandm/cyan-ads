@@ -35,7 +35,7 @@ function hasVideoTeaser($advertising_item)
 
             <div class="flex justify-between items-center">
 
-                <div class="text-xl font-semibold md:text-4xl md:font-bold">تیزر تبلیغاتی و عکاسی</div>
+                <div class="text-2xl font-semibold md:text-4xl md:font-bold">عکاسی و تصویربرداری</div>
 
                 <?php if ($advertising_link): ?>
 
@@ -43,10 +43,28 @@ function hasVideoTeaser($advertising_item)
 
                 <?php endif; ?>
 
+                <div class="flex gap-2">
+
+                    <button id="teaserPrev"
+                        class="bg-transparent p-3 border border-white cursor-pointer">
+                        <div class="text-white size-4">
+                            <?php icon::print('Arrow,-Right') ?>
+                        </div>
+                    </button>
+
+                    <button id="teaserNext"
+                        class="bg-transparent p-3 border border-white cursor-pointer">
+                        <div class="text-white size-4">
+                            <?php icon::print('Left-1') ?>
+                        </div>
+                    </button>
+
+                </div>
+
             </div>
 
             <swiper-container slides-per-view="auto" space-between="5" loop="true" autoplay="true" pagination="false"
-                navigation="false" class="w-full">
+                navigation="true" navigation-next-el="#teaserNext" navigation-prev-el="#teaserPrev" class="w-full">
 
                 <?php foreach ($advertising_items as $advertising_item): ?>
 

@@ -1,5 +1,6 @@
 <?php
 
+use Cyan\Theme\Helpers\Templates;
 use Cyan\Theme\Helpers\Icon;
 
 $steps_title = get_field('steps_title');
@@ -17,7 +18,7 @@ for ($i = 1; $i <= 10; $i++) {
 
 <section class="bg-bottom bg-no-repeat bg-[#000B30] max-md:bg-gradient-to-b from-[#00386B] to-[#001C47] flex pb-12 md:px-11" id="steps">
 
-    <div class="container flex justify-between md:!bg-none bg-no-repeat bg-left-top" style="background-image: url(<?php echo THEME_IMAGES_URI . '/bg-steps-mobile.svg' ?>);">
+    <div class="container flex justify-between md:!bg-none bg-no-repeat bg-left-top relative">
 
         <div class="max-w-[50%] flex flex-col justify-center py-16 max-lg:max-w-[65%] max-md:min-w-[100%]">
 
@@ -60,7 +61,17 @@ for ($i = 1; $i <= 10; $i++) {
 
         <div class="min-w-[25%] flex justify-center max-md:hidden items-start">
 
-            <img src="<?php echo THEME_IMAGES_URI . '/bg-steps-desktop.svg' ?>" alt="Steps Image">
+            <?php
+            Templates::getPage('seo-ads/svg-desktop');
+            ?>
+
+        </div>
+
+        <div class="absolute flex justify-center md:hidden items-start left-2 bottom-5">
+
+            <?php
+            Templates::getPage('seo-ads/svg-mobile');
+            ?>
 
         </div>
 

@@ -6,7 +6,8 @@ for ($i = 1; $i <= 12; $i++) {
         [
             'image' => get_field("website_image_$i"),
             'text' => get_field("website_title_$i"),
-            'description' => get_field("website_description_$i")
+            'description' => get_field("website_description_$i"),
+            'url' => get_field("website_preview_$i")
         ]
 
     );
@@ -25,7 +26,7 @@ $website_link = get_field('website_link');
 
             <div class="flex justify-between items-center">
 
-                <div class="text-xl font-semibold md:text-4xl md:font-bold">طراحی وب سایت</div>
+                <div class="text-2xl font-semibold md:text-4xl md:font-bold">طراحی وب سایت</div>
 
                 <?php if ($website_link): ?>
 
@@ -42,10 +43,9 @@ $website_link = get_field('website_link');
 
                     <?php if ($website_image['image']): ?>
 
-                        <swiper-slide style="max-width:330px" class="max-md:!max-w-[265px] swiper-gallery">
+                        <swiper-slide style="max-width:330px" class="max-md:!max-w-[265px]">
 
-                            <a href="<?php echo wp_get_attachment_image_url($website_image['image'], 'full') ?>" data-pswp-width="720"
-                                data-pswp-height="720">
+                            <a href="<?php echo $website_image['url'] ?>">
                                 <div class="swiper-wrapper border border-white border-opacity-40 p-3 text-center">
                                     <?php echo wp_get_attachment_image($website_image['image'], 'full', false, ['class' => 'object-cover object-center h-56 md:h-80 md:w-80']); ?>
 

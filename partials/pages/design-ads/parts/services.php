@@ -23,7 +23,7 @@ for ($i = 1; $i <= 8; $i++) {
 
             <!-- تصویر اصلی -->
             <div class="w-full md:w-[35%] flex justify-center max-md:hidden">
-                <?php echo wp_get_attachment_image($service_character_image, 'full', 'false', ['class' => 'w-full object-cover']); ?>
+                <?php echo wp_get_attachment_image($service_character_image, 'full', false, ['class' => 'w-full object-cover']); ?>
             </div>
 
             <div class="w-full md:w-[65%] flex flex-col max-md:items-center">
@@ -41,7 +41,7 @@ for ($i = 1; $i <= 8; $i++) {
                 </div>
 
                 <div class="w-full md:w-1/4 flex justify-center md:hidden max-md:w-3/4">
-                    <?php echo wp_get_attachment_image($service_character_image, 'full', 'false', ['class' => 'w-full object-cover']); ?>
+                    <?php echo wp_get_attachment_image($service_character_image, 'full', false, ['class' => 'w-full object-cover']); ?>
                 </div>
 
                 <!-- گرید تصاویر -->

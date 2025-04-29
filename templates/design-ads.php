@@ -5,13 +5,22 @@ use Cyan\Theme\Helpers\Templates;
 ?>
 
 
-<?php Templates::getPage('design-ads/header'); ?>
+<?php
+get_header(null, array(
+	'bg-color' => 'bg-zinc-900 text-white',
+	'menu_text_color' => 'text-white hover:text-gray-200',
+));
+?>
 
 
 <div class="homepage-content">
 
 	<?php
 	Templates::getPage('design-ads/parts/hero');
+
+	Templates::getPage('design-ads/parts/webdesign-slider');
+
+	Templates::getPage('design-ads/parts/webdesign');
 
 	Templates::getPage('design-ads/parts/social');
 
@@ -21,11 +30,15 @@ use Cyan\Theme\Helpers\Templates;
 
 	Templates::getPage('design-ads/parts/motion');
 
+	Templates::getPage('design-ads/parts/customer');
+
 	Templates::getPage('design-ads/parts/services');
 
-	Templates::getPage('design-ads/parts/webdesign');
+	Templates::getPage('design-ads/parts/instagram');
 
 	Templates::getPage('design-ads/parts/customers');
+
+	// Templates::getPage('design-ads/parts/plans');
 	?>
 
 </div>
