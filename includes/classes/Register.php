@@ -40,11 +40,13 @@ class Register
 
 		self::makePostType('form', 'فرم', 'فرم ها', 'dashicons-editor-table');
 		self::makePostType('portfolio', 'نمونه کار', 'نمونه کار ها', 'dashicons-book-alt');
+		self::makePostType('plan', 'تعرفه', 'تعرفه ها', 'dashicons-paperclip');
 	}
 
 	public static function registerTaxonomy()
 	{
-		self::makeTaxonomy('departement', 'دپارتمان', 'دپارتمان ها', ['portfolio' ], true );
+		self::makeTaxonomy('department', 'دپارتمان', 'دپارتمان ها', ['portfolio'], true);
+		self::makeTaxonomy('part', 'بخش', 'بخش ها', ['plan'], true);
 	}
 
 	/**

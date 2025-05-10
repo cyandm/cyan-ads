@@ -39,6 +39,16 @@ class Meta
                 ],
 
                 [
+                    'name' => '_email',
+                    'label' => 'ایمیل:',
+                ],
+
+                [
+                    'name' => '_plan',
+                    'label' => 'تعرفه:',
+                ],
+
+                [
                     'name' => '_budget',
                     'label' => 'بودجه:',
                 ],

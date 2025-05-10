@@ -21123,7 +21123,9 @@
   function footsteps_animation() {
     if (document.querySelector("#footsteps-svg")) {
       document.addEventListener("DOMContentLoaded", function() {
-        const groups = document.querySelectorAll('#footsteps-svg g[id^="Group_"]');
+        const groups = document.querySelectorAll(
+          '#footsteps-svg g[id^="Group_"]'
+        );
         let currentStep = 0;
         const trailLength = 2;
         const fadeDelay = 2e3;
@@ -21204,6 +21206,26 @@
     });
   }
 
+  // assets/js/functions/flip.js
+  function Flip() {
+    if (document.querySelector(".flip")) {
+      const moreDetailsButtons = document.querySelectorAll("#more_details");
+      const lowDetailsButtons = document.querySelectorAll("#low_details");
+      const flipCards = document.querySelectorAll(".flip");
+      moreDetailsButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          flipCards[index].classList.add("flipped");
+        });
+      });
+      lowDetailsButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          flipCards[index].classList.remove("flipped");
+        });
+      });
+    }
+  }
+  Flip();
+
   // assets/js/index.js
   swiper_default();
   Modals();
@@ -21212,6 +21234,7 @@
   PhotoSwipeTheme();
   footsteps_animation();
   Tabs();
+  Flip();
 })();
 /*! Bundled license information:
 

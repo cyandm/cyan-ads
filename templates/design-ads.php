@@ -7,7 +7,7 @@ use Cyan\Theme\Helpers\Templates;
 
 <?php
 get_header(null, array(
-	'bg-color' => 'bg-zinc-900 text-white',
+	'bg-color' => 'bg-[#000827] text-white',
 	'menu_text_color' => 'text-white hover:text-gray-200',
 ));
 ?>
@@ -38,7 +38,9 @@ get_header(null, array(
 
 	Templates::getPage('design-ads/parts/customers');
 
-	// Templates::getPage('design-ads/parts/plans');
+	Templates::getPage('design-ads/parts/plans');
+
+	Templates::getPage('design-ads/parts/contact');
 	?>
 
 </div>

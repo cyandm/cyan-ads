@@ -1,7 +1,9 @@
 export function footsteps_animation() {
   if (document.querySelector("#footsteps-svg")) {
     document.addEventListener("DOMContentLoaded", function () {
-      const groups = document.querySelectorAll('#footsteps-svg g[id^="Group_"]');
+      const groups = document.querySelectorAll(
+        '#footsteps-svg g[id^="Group_"]'
+      );
       let currentStep = 0;
       const trailLength = 2;
       const fadeDelay = 2000;
@@ -17,7 +19,7 @@ export function footsteps_animation() {
       function animateNextStep() {
         // اضافه کردن قدم فعلی به تاریخچه
         stepsHistory.push(currentStep);
-        
+
         // نمایش قدم فعلی
         groups[currentStep].style.opacity = ""; // حذف opacity مستقیم
         groups[currentStep].classList.add("active");
@@ -28,7 +30,7 @@ export function footsteps_animation() {
           setTimeout(() => {
             groups[stepToFade].classList.remove("active");
             groups[stepToFade].classList.add("fade-out");
-            
+
             // حذف کلاس fade-out بعد از اتمام انیمیشن
             setTimeout(() => {
               groups[stepToFade].classList.remove("fade-out");

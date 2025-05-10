@@ -36,6 +36,7 @@ class ACF
 		self::forSeoAds();
 		self::forDesignAds();
 		self::forPortfolio();
+		self::forPlan();
 	}
 
 	private static function forSeoAds()
@@ -446,7 +447,7 @@ class ACF
 		}
 		#endregion
 
-		//social
+		#region social
 		$acfGroup->layoutFields->addTab('social', 'شبکه های اجتماعی');
 
 		$acfGroup->basicFields->addUrl('social_link', 'لینک دکمه مشاهده همه شبکه های اجتماعی (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
@@ -454,8 +455,9 @@ class ACF
 		for ($i = 1; $i <= 12; $i++) {
 			$acfGroup->contentFields->addImage("social_image_$i", "عکس شبکه اجتماعی $i", [], "social_image_$i");
 		}
+		#endregion
 
-		//brand
+		#region brand
 		$acfGroup->layoutFields->addTab('brand', 'طراحی لوگو و برندینگ');
 
 		$acfGroup->basicFields->addUrl('brand_link', 'لینک دکمه مشاهده همه برند ها (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
@@ -464,8 +466,9 @@ class ACF
 			$acfGroup->contentFields->addImage("brand_image_$i", "عکس برند $i", [], "brand_image_$i");
 			$acfGroup->basicFields->addText("brand_text_$i", "متن برند $i", [], "brand_text_$i");
 		}
+		#endregion
 
-		//advertising
+		#region advertising
 		$acfGroup->layoutFields->addTab('advertising', 'تیزر تبلیغاتی و عکاسی');
 
 		$acfGroup->basicFields->addUrl('advertising_link', 'لینک دکمه مشاهده همه تبلیغات (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
@@ -474,9 +477,10 @@ class ACF
 			$acfGroup->contentFields->addImage("advertising_image_$i", "عکس کاور ویدیو تبلیغاتی $i", [], "advertising_image_$i");
 			$acfGroup->contentFields->addFile("advertising_video_$i", "ویدیو تبلیغاتی $i", [], "advertising_video_$i");
 		}
+		#endregion
 
 
-		//motion
+		#region motion
 		$acfGroup->layoutFields->addTab('motion', 'موشن گرافیک');
 
 		$acfGroup->basicFields->addUrl('motion_link', 'لینک دکمه مشاهده همه موشن گرافیک (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
@@ -485,9 +489,10 @@ class ACF
 			$acfGroup->contentFields->addImage("motion_image_$i", "عکس کاور ویدیو موشن گرافیک $i", [], "motion_image_$i");
 			$acfGroup->contentFields->addFile("motion_video_$i", "ویدیو موشن گرافیک $i", [], "motion_video_$i");
 		}
+		#endregion
 
 
-		//website
+		#region website
 		$acfGroup->layoutFields->addTab('website', 'طراحی وبسایت');
 
 		$acfGroup->basicFields->addText('website_link', 'لینک دکمه مشاهده همه وب سایت (درصورت خالی بودن دکمه نمایش داده نمی شود)', ['width' => '50%']);
@@ -498,9 +503,10 @@ class ACF
 			$acfGroup->basicFields->addText("website_description_$i", "متن توضیحات وب سایت $i", [], "website_description_$i");
 			$acfGroup->basicFields->addText("website_preview_$i", "لینک نمونه کار $i", [], "website_description_$i");
 		}
+		#endregion
 
 
-		//services
+		#region services
 		$acfGroup->layoutFields->addTab('service', 'خدمات');
 
 		$acfGroup->basicFields->addText('service_title', 'تایتل خدمات', ['width' => '50%']);
@@ -511,6 +517,7 @@ class ACF
 		for ($i = 1; $i <= 12; $i++) {
 			$acfGroup->contentFields->addImage("service_image_$i", "عکس خدمت $i", [], "service_image_$i");
 		}
+		#endregion
 
 		#region customer video
 		$acfGroup->layoutFields->addTab('customer_video', 'ویدیو مشتریان');
@@ -550,20 +557,25 @@ class ACF
 		}
 		#endregion
 
-
-		#region plans
+		#region plan
 		$acfGroup->layoutFields->addTab('plans', 'تعرفه ها');
 
-		for ($i = 1; $i <= 4; $i++) {
-			$acfGroup->basicFields->addText("plan_name_$i", "نام تعرفه $i", [], "plan_name_$i");
-			$acfGroup->basicFields->addText("plan_desc_$i", "توضیحات تعرفه $i", [], "plan_desc_$i");
-			$acfGroup->basicFields->addText("plan_price_$i", "مبلغ تعرفه $i", [], "plan_price_$i");
-			$acfGroup->basicFields->addTextarea("plan_ability_$i", "موارد دریافتی $i", [], "plan_ability_$i");
-		}
+		$acfGroup->basicFields->addText("plan_title", "تایتل تعرفه ها", [], "plan_title");
+		$acfGroup->basicFields->addText("plan_subtitle", "تایتل در پرانتز", [], "plan_subtitle");
+		$acfGroup->basicFields->addText("plan_title_modal", "تایتل متن پاپ آپ دریافت پکیج", [], "plan_title_modal");
+		$acfGroup->basicFields->addText("plan_subtitle_modal", "متن توضیحات پاپ آپ دریافت پکیج", [], "plan_subtitle_modal");
+
 		#endregion
 
+		#region contact
+		$acfGroup->layoutFields->addTab('contact', 'دریافت مشاوره');
 
-		//footer
+		$acfGroup->basicFields->addText("contact_title", "تایتل دریافت مشاوره", [], "contact_title");
+		$acfGroup->basicFields->addText("contact_subtitle", "زیر تایتل دریافت مشاوره", [], "contact_subtitle");
+		$acfGroup->contentFields->addImage("contact_img", "عکس دریافت مشاوره", [], "contact_img");
+		#endregion
+
+		#region footer
 		$acfGroup->layoutFields->addTab('footer', 'فوتر');
 
 		$acfGroup->contentFields->addImage("footer_logo", "عکس لوگو فوتر", [], "footer_logo");
@@ -571,6 +583,7 @@ class ACF
 		for ($i = 1; $i <= 8; $i++) {
 			$acfGroup->relationshipFields->addLink("footer_menu_$i", "منو فوتر: آیتم $i", [], "footer_menu_$i");
 		}
+		#endregion
 
 		$acfGroup->setLocation('page_template', '==', 'templates/design-ads.php');
 
@@ -593,5 +606,56 @@ class ACF
 		$acfGroup->setLocation('post_type', '==', 'portfolio');
 
 		$acfGroup->register('نمونه کار');
+	}
+
+	private static function forPlan()
+	{
+		$acfGroup = new AcfGroup();
+
+		#region plans
+		$acfGroup->layoutFields->addTab('plans', 'تعرفه ها');
+
+		$acfGroup->basicFields->addText("plan_name", "نام تعرفه", [], "plan_name");
+		$acfGroup->basicFields->addText("plan_name_more", "متن داخل پرانتز", [], "plan_name_more");
+		$acfGroup->basicFields->addText("plan_desc", "توضیحات تعرفه", [], "plan_desc");
+		$acfGroup->basicFields->addText("plan_price", "مبلغ تعرفه", [], "plan_price");
+
+		$abilities = [
+			'one' => 'آیا برای این تعرفه شامل میشود؟',
+			'two' => 'آیا برای این تعرفه شامل میشود؟',
+			'three' => 'آیا برای این تعرفه شامل میشود؟',
+			'four' => 'آیا برای این تعرفه شامل میشود؟',
+			'five' => 'آیا برای این تعرفه شامل میشود؟',
+			'six' => 'آیا برای این تعرفه شامل میشود؟',
+			'seven' => 'آیا برای این تعرفه شامل میشود؟',
+			'eight' => 'آیا برای این تعرفه شامل میشود؟',
+			'nine' => 'آیا برای این تعرفه شامل میشود؟',
+			'ten' => 'آیا برای این تعرفه شامل میشود؟',
+			'eleven' => 'آیا برای این تعرفه شامل میشود؟',
+			'twelve' => 'آیا برای این تعرفه شامل میشود؟',
+			'thirteen' => 'آیا برای این تعرفه شامل میشود؟',
+			'fourteen' => 'آیا برای این تعرفه شامل میشود؟',
+			'fifteen' => 'آیا برای این تعرفه شامل میشود؟',
+			'sixteen' => 'آیا برای این تعرفه شامل میشود؟',
+			'seventeen' => 'آیا برای این تعرفه شامل میشود؟',
+			'eighteen' => 'آیا برای این تعرفه شامل میشود؟',
+		];
+
+		foreach ($abilities as $key => $label) {
+			$acfGroup->basicFields->addText("plan_ability_{$key}_text", "متن قابلیت", [], "plan_ability_{$key}_text");
+			$acfGroup->choiceFields->addRadio(
+				"plan_ability_{$key}",
+				$label,
+				['choices' => ['inactive' => 'غیرفعال', 'active' => 'فعال'], 'width' => '33'],
+				"plan_ability_{$key}"
+			);
+		}
+
+		$acfGroup->choiceFields->addRadio("plan_ability_suggest", "پلن پیشنهادی", ['choices' => ['inactive' => 'غیرفعال', 'active' => 'فعال'], 'width' => '50'], "plan_ability_suggest");
+
+		$acfGroup->setLocation('post_type', '==', 'plan');
+
+		$acfGroup->register('تعرفه');
+		#endregion
 	}
 }

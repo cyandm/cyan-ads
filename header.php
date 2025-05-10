@@ -38,7 +38,7 @@ $counseling_phone = get_option('cyn_header_phone_number');
 
 				<div class="size-11 text-red-600 bg-white border-r-2 border-b-2 border-red-600 rounded-full" modal-closer data-modal-name="mobile-menu-modal">
 
-					<?php Icon::print(icon_id: 'Delete,-Disabled') ?>
+					<?php Icon::print('Delete,-Disabled') ?>
 
 				</div>
 

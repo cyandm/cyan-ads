@@ -89,7 +89,7 @@ $image_logo = get_field('image_logo');
 			<div class="flex items-center gap-3 flex-1 max-md:justify-center">
 				<!-- لوگو -->
 				<?php if ($image_logo): ?>
-					<?php echo wp_get_attachment_image($image_logo, 'full', 'false'); ?>
+					<?php echo wp_get_attachment_image($image_logo, 'full', false); ?>
 				<?php endif ?>
 
 				<!-- فهرست منو -->

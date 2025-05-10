@@ -155,3 +155,61 @@
 .swiper-webdesign-level .swiper-button-prev {
   right: 1000px !important;
 }
+
+/* From Uiverse.io by david-mohseni */
+.flip {
+  transform-style: preserve-3d;
+  transition: 3s ease;
+}
+
+.flip.flipped {
+  transform: rotateY(180deg);
+}
+/* Content */
+.flip .content {
+  transform-style: preserve-3d;
+}
+
+.flip .back,
+.flip .front {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip .back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flip button,
+.flip .front-content {
+  transform: translateZ(48px);
+  text-shadow: 0 0 3px black;
+}
+
+.flip::before,
+.flip::after {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.flip::before {
+  transform: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

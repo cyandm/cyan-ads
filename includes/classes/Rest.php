@@ -31,12 +31,15 @@ class Rest
 
 		$body = $request->get_body_params();
 
-		$name = sanitize_text_field($body['name']);
-		$last_name = sanitize_text_field($body['last_name']);
-		$phone = sanitize_text_field($body['phone']);
-		$keywords = sanitize_text_field($body['keywords']);
-		$address_website = sanitize_text_field($body['address_website']);
-		$budget = sanitize_text_field($body['budget']);
+		$name = isset($body['name']) ? sanitize_text_field($body['name']) : '';
+		$last_name = isset($body['last_name']) ? sanitize_text_field($body['last_name']) : '';
+		$phone = isset($body['phone']) ? sanitize_text_field($body['phone']) : '';
+		$email = isset($body['email']) ? sanitize_text_field($body['email']) : '';
+		$plan = isset($body['plan']) ? sanitize_text_field($body['plan']) : '';
+		$keywords = isset($body['keywords']) ? sanitize_text_field($body['keywords']) : '';
+		$address_website = isset($body['address_website']) ? sanitize_text_field($body['address_website']) : '';
+		$budget = isset($body['budget']) ? sanitize_text_field($body['budget']) : '';
+
 
 		$new_post = wp_insert_post([
 			'post_type' => 'form',
@@ -46,6 +49,8 @@ class Rest
 				'_name' => $name,
 				'_last_name' => $last_name,
 				'_phone' => $phone,
+				'_email' => $email,
+				'_plan' => $plan,
 				'_keywords' => $keywords,
 				'_address_website' => $address_website,
 				'_budget' => $budget,

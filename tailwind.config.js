@@ -31,10 +31,22 @@ module.exports = {
           "50%": { transform: "translateX(40%)" },
           "100%": { transform: "translateX(0%)" },
         },
+        leftToRight: {
+          "0%": { transform: "translateX(0%)" },
+          "50%": { transform: "translateX(15%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        rightToLeft: {
+          "0%": { transform: "translateX(0%)" },
+          "50%": { transform: "translateX(-15%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
       },
       animation: {
         moveCloudShort: "moveCloudShort 10s linear infinite",
         moveCloudLong: "moveCloudLong 12s linear infinite",
+        leftToRight: "leftToRight 1.5s linear infinite",
+        rightToLeft: "rightToLeft 1.5s linear infinite",
       },
     },
   },

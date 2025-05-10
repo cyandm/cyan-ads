@@ -12,6 +12,7 @@ import swiper from "./functions/swiper";
 import "./functions/htmx";
 import { footsteps_animation } from "./functions/footsteps-animation";
 import { Tabs } from "./functions/tabs";
+import { Flip } from "./functions/flip";
 
 swiper();
 Modals();
@@ -21,3 +22,4 @@ PhotoSwipeTheme();
 //show_more_btn();
 footsteps_animation();
 Tabs();
+Flip();
