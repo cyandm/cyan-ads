@@ -74,7 +74,7 @@ $plan_subtitle_modal = get_field('plan_subtitle_modal');
 
 function isTabActive($plans)
 {
-    return ! empty($plans['title']) || ! empty($plans['cover']);
+    return !empty($plans['title']) || !empty($plans['cover']);
 }
 
 

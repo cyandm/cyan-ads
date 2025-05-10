@@ -24,14 +24,14 @@ for ($i = 1; $i <= 12; $i++) {
             <div class="md:w-3/5">
                 <!-- بخش توضیحات و متن -->
                 <div class="flex flex-col gap-7 w-full md:w-auto">
-                    <div class="my-9 text-center md:text-right">
+                    <div class="my-9 text-center md:text-right flex flex-col gap-3">
                         <div class="flex flex-row items-center gap-4 md:gap-2">
                             <div class="size-10 rotate-180">
                                 <?php Icon::print('Arrow,-Location-,-Direction'); ?>
                             </div>
                             <div class="font-medium"><?php echo ($customer_description); ?></div>
                         </div>
-                        <div class="text-4xl md:text-[56px] font-bold flex mr-4"><?php echo ($customer_title); ?></div>
+                        <div class="text-4xl md:text-[56px] font-bold flex mr-4 my-3"><?php echo ($customer_title); ?></div>
                     </div>
                 </div>
 
