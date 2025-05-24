@@ -93,8 +93,15 @@ function hasVideoTeaser($advertising_item)
 
                         <swiper-slide style="max-width:330px" class="max-md:!max-w-[265px] swiper-gallery">
 
-                            <a href="<?php echo wp_get_attachment_image_url($advertising_item['image'], 'full') ?>" data-pswp-width="720"
-                                data-pswp-height="720">
+                            <?php 
+                                $full_image_url = wp_get_attachment_image_url($advertising_item['image'], 'full');
+                                $image_meta = wp_get_attachment_metadata($advertising_item['image']);
+                                $actual_width = $image_meta['width'] ?? 720;
+                                $actual_height = $image_meta['height'] ?? 720;
+                            ?>
+                            <a href="<?php echo $full_image_url ?>" 
+                               data-pswp-width="<?php echo $actual_width ?>"
+                               data-pswp-height="<?php echo $actual_height ?>">
                                 <div class="swiper-wrapper border border-white border-opacity-40 p-3">
                                     <?php echo wp_get_attachment_image($advertising_item['image'], 'full', false, ['class' => 'object-cover object-center h-56 md:h-80 md:w-80']); ?>
                                 </div>
