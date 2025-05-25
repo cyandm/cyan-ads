@@ -11,6 +11,8 @@ $main_title_desktop = get_field('main_title_desktop');
 $main_title_mobile = get_field('main_title_mobile');
 $sub_title = get_field('sub_title');
 $btn_text = get_field('btn_title');
+$btn_call_text = get_field('btn_call_title');
+$btn_call_num = get_field('btn_call_num');
 $title_analyze_popup = get_field('title_analyze_popup');
 $subtitle_analyze_popup = get_field('subtitle_analyze_popup');
 ?>
@@ -141,12 +143,9 @@ $subtitle_analyze_popup = get_field('subtitle_analyze_popup');
 
 			</div>
 
-			<h1 class="max-mm:hidden text-white 2xl:text-8xl xl:text-[84px] md:text-6xl max-md:text-4xl font-bold text-right mt-10 sm:mt-0 relative -z-20 max-md:text-center">
-				<?php echo $main_title_desktop ?>
-			</h1>
-
-			<h1 class="mm:hidden text-white 2xl:text-8xl xl:text-[84px] md:text-6xl max-md:text-4xl font-bold text-right mt-10 sm:mt-0 relative -z-20 max-md:text-center">
-				<?php echo $main_title_mobile ?>
+			<h1 class="text-white 2xl:text-8xl xl:text-[84px] md:text-6xl max-md:text-4xl font-bold text-right mt-10 sm:mt-0 relative -z-20 max-md:text-center">
+				<span class="max-mm:hidden" aria-hidden="true"><?php echo $main_title_desktop ?></span>
+				<span class="mm:hidden"><?php echo $main_title_mobile ?></span>
 			</h1>
 
 			<div class="text-white 2xl:text-4xl xl:text-3xl md:text-2xl max-md:text-2xl max-md:font-medium font-bold mt-10 max-md:mt-4 max-md:text-center max-mm:font-normal"><?php echo $sub_title ?></div>
@@ -158,7 +157,7 @@ $subtitle_analyze_popup = get_field('subtitle_analyze_popup');
 
 			</div>
 
-			<div class="mt-10 max-md:mt-5 flex max-md:justify-center">
+			<div class="mt-10 max-md:mt-5 flex max-md:flex-col max-md:items-center max-md:justify-center gap-4">
 
 				<div class="flex justify-normal items-center bg-white rounded-lg p-3 border-b-4 border-[#3CC9F5] border-r-4 cursor-pointer w-fit" modal-opener data-modal-name="analyze-form-modal">
 					<div class="text-[#00458A] flex items-center gap-2">
@@ -169,6 +168,17 @@ $subtitle_analyze_popup = get_field('subtitle_analyze_popup');
 							<?php echo $btn_text ?>
 						</span>
 					</div>
+				</div>
+
+				<div class="flex justify-normal items-center bg-white rounded-lg p-3 border-b-4 border-[#3CC9F5] border-r-4 cursor-pointer w-fit animate-border-pulse">
+					<a href="tell:<?php echo $btn_call_num ?>" class="text-[#00458A] flex items-center gap-2">
+						<div class="size-7 stroke-[1.5px]">
+							<div id="phone-animation" class="phone-animation"></div>
+						</div>
+						<span>
+							<?php echo $btn_call_text ?>
+						</span>
+					</a>
 				</div>
 
 			</div>

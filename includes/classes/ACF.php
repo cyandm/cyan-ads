@@ -75,6 +75,13 @@ class ACF
 			'width' => '50%',
 		]);
 
+		$acfGroup->basicFields->addText('btn_call_title', 'متن دکمه تماس', [
+			'width' => '50%',
+		]);
+
+		$acfGroup->basicFields->addText('btn_call_num', 'شماره تماس', [
+			'width' => '50%',
+		]);
 
 		$acfGroup->basicFields->addText('title_analyze_popup', 'تایتل پاپ آپ فرم آنالیز کسب و کار', [
 			'width' => '50%',

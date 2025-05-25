@@ -1,6 +1,6 @@
 {
   "name": "cyan-ads",
-  "version": "2.0.0",
+  "version": "2.2.1",
   "description": "A custom WordPress theme designed to provide a flexible and easy-to-use framework for developers.",
   "main": "index.php",
   "scripts": {
@@ -31,9 +31,10 @@
     "zip-build": "^1.8.0"
   },
   "dependencies": {
-    "esbuild": "^0.23.1",
+    "esbuild": "^0.25.4",
     "gsap": "^3.12.5",
     "htmx.org": "^1.9.12",
+    "lottie-web": "^5.13.0",
     "photoswipe": "^5.4.4",
     "plyr": "^3.7.8",
     "swiper": "^11.1.15"

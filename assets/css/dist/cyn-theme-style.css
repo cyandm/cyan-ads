@@ -1240,6 +1240,11 @@ body {
   margin-bottom: 4rem;
 }
 
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .my-32 {
   margin-top: 8rem;
   margin-bottom: 8rem;
@@ -1253,11 +1258,6 @@ body {
 .my-9 {
   margin-top: 2.25rem;
   margin-bottom: 2.25rem;
-}
-
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
 }
 
 .-mt-14 {
@@ -1320,6 +1320,10 @@ body {
   margin-top: 5rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .mt-32 {
   margin-top: 8rem;
 }
@@ -1338,14 +1342,6 @@ body {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 
 .block {
@@ -1414,11 +1410,6 @@ body {
   height: 2rem;
 }
 
-.size-1 {
-  width: 0.25rem;
-  height: 0.25rem;
-}
-
 .h-11 {
   height: 2.75rem;
 }
@@ -1449,6 +1440,10 @@ body {
 
 .h-7 {
   height: 1.75rem;
+}
+
+.h-80 {
+  height: 20rem;
 }
 
 .h-\[12rem\] {
@@ -1679,12 +1674,6 @@ body {
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.rotate-90 {
-  --tw-rotate: 90deg;
-  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .-scale-y-100 {
   --tw-scale-y: -1;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1695,6 +1684,11 @@ body {
   --tw-scale-x: -1;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.\!transform {
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 
 .transform {
@@ -1719,6 +1713,31 @@ body {
 .animate-\[spin_8s_linear_infinite\] {
   -webkit-animation: spin 8s linear infinite;
           animation: spin 8s linear infinite;
+}
+
+@-webkit-keyframes borderPulse {
+  0%, 100% {
+    border-color: #3CC9F5;
+  }
+
+  50% {
+    border-color: #FF8585;
+  }
+}
+
+@keyframes borderPulse {
+  0%, 100% {
+    border-color: #3CC9F5;
+  }
+
+  50% {
+    border-color: #FF8585;
+  }
+}
+
+.animate-border-pulse {
+  -webkit-animation: borderPulse 2s ease-in-out infinite;
+          animation: borderPulse 2s ease-in-out infinite;
 }
 
 @-webkit-keyframes leftToRight {
@@ -2028,6 +2047,10 @@ body {
   gap: 3rem;
 }
 
+.gap-16 {
+  gap: 4rem;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -2070,10 +2093,6 @@ body {
 
 .gap-\[18px\] {
   gap: 18px;
-}
-
-.gap-16 {
-  gap: 4rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2781,6 +2800,10 @@ body {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .leading-10 {
@@ -3966,6 +3989,11 @@ body {
     line-height: 2.5rem;
   }
 
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -3978,11 +4006,6 @@ body {
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .md\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
   }
 
   .md\:font-bold {

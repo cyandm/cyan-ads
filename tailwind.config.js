@@ -41,12 +41,17 @@ module.exports = {
           "50%": { transform: "translateX(-15%)" },
           "100%": { transform: "translateX(0%)" },
         },
+        borderPulse: {
+          "0%, 100%": { borderColor: "#3CC9F5" },
+          "50%": { borderColor: "#FF8585" },
+        },
       },
       animation: {
         moveCloudShort: "moveCloudShort 10s linear infinite",
         moveCloudLong: "moveCloudLong 12s linear infinite",
         leftToRight: "leftToRight 1.5s linear infinite",
         rightToLeft: "rightToLeft 1.5s linear infinite",
+        "border-pulse": "borderPulse 2s ease-in-out infinite",
       },
     },
   },
