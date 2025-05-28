@@ -67,13 +67,13 @@ $hero_long_title = get_field('hero-long-title');
             <div class="flex gap-5 max-md:flex-col">
 
                 <div class="flex flex-col gap-1">
-                    <label for="name" class="text-base font-normal">نام</label>
-                    <input type="text" name="name" id="name" placeholder="نام شما" required>
+                    <label for="name" class="text-base font-normal">نام و نام خانوادگی</label>
+                    <input type="text" name="name" id="name" placeholder="نام و نام خانوادگی" required>
                 </div>
 
                 <div class="flex flex-col gap-1">
-                    <label for="last_name">نام خانوادگی</label>
-                    <input type="text" name="last_name" id="last_name" placeholder="نام خانوادگی شما" required>
+                    <label for="phone" class="text-base font-normal">تلفن همراه</label>
+                    <input type="text" name="phone" id="phone" placeholder="تلفن همراه" required>
                 </div>
 
             </div>
@@ -82,13 +82,8 @@ $hero_long_title = get_field('hero-long-title');
             <div class="flex gap-5 max-md:flex-col">
 
                 <div class="flex flex-col gap-1">
-                    <label for="phone" class="text-base font-normal">تلفن همراه</label>
-                    <input type="text" name="phone" id="phone" placeholder="تلفن همراه" required>
-                </div>
-
-                <div class="flex flex-col gap-1">
-                    <label for="address_website" class="text-base font-normal">آدرس سایت و یا پیج اینستاگرام کنونی</label>
-                    <input type="text" name="address_website" id="address_website" placeholder="http://">
+                    <label for="address_website" class="text-base font-normal">توضیحات تکمیلی</label>
+                    <textarea name="address_website" id="address_website" placeholder="http://" rows="5" class="resize-none rounded-xl bg-white/10 border-none text-white px-4 py-2 placeholder:text-white/60"></textarea>
                 </div>
 
             </div>

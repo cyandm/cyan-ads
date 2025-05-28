@@ -12,7 +12,7 @@ use Cyan\Theme\Helpers\Icon;
 $header_args = wp_parse_args($args, [
 	'menu_text_color' => 'text-zinc-500 hover:text-slate-800',
 	'hide' => '',
-	'bg-color'=> '',
+	'bg-color' => '',
 ]);
 
 $counseling_phone = get_option('cyn_header_phone_number');
@@ -28,7 +28,7 @@ $counseling_phone = get_option('cyn_header_phone_number');
 </head>
 
 <body <?php body_class('overflow-x-hidden ' . $header_args['bg-color']); ?>>
-    <?php wp_body_open(); ?>
+	<?php wp_body_open(); ?>
 
 	<div class="bg-white w-0 fixed inset-0 z-50 opacity-0 pointer-events-none data-[active='true']:w-3/4 data-[active='true']:opacity-100 data-[active='true']:pointer-events-auto duration-500" modal data-modal-name="mobile-menu-modal" data-active="false">
 

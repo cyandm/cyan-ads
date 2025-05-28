@@ -60,7 +60,7 @@ class Meta
 
                 [
                     'name' => '_address_website',
-                    'label' => 'آدرس سایت:',
+                    'label' => 'آدرس سایت/پیج یا توضیحات:',
                 ],
             ];
 

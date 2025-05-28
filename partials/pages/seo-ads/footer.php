@@ -45,7 +45,7 @@ $address_text = get_field('seo_address', $main_page[0]) ?? '';
 							</li>
 
 							<li class="text-base font-normal text-white duration-300">
-								<p class="cursor-pointer" modal-opener data-modal-name="analyze-form-modal">مشاوره سئو</p>
+								<p class="cursor-pointer" modal-opener data-modal-name="analyze-form-modal">درخواست مشاوره</p>
 							</li>
 
 							<?php for ($i = 1; $i <= 8; $i++): ?>

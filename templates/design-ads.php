@@ -45,8 +45,8 @@ get_header(null, array(
 
 </div>
 
-<footer>
-	<?php Templates::getPage('design-ads/footer'); ?>
+<footer class="mt-32">
+	<?php Templates::getPage(partial: 'seo-ads/footer'); ?>
 </footer>
 
 <?php
