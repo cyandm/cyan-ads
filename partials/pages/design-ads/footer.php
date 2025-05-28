@@ -1,4 +1,7 @@
 <?php
+
+use Cyan\Theme\Helpers\Templates;
+
 $image_logo = get_field('image_logo_footer');
 ?>
 
@@ -33,5 +36,7 @@ $image_logo = get_field('image_logo_footer');
 		<div class="flex justify-center"><?php echo wp_get_attachment_image($image_logo, 'full', 'false'); ?></div>
 
 	</section>
+
+	<?php Templates::getPart('whatsapp'); ?>
 
 </footer>

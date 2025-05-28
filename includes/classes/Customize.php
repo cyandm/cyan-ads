@@ -98,6 +98,17 @@ class Customize
 		self::addControl('header_phone_call', 'text', "cyn_header_phone_number", "شماره تلفن");
 
 		self::$wpCustomize->add_section(
+			'link_whatsapp',
+			[
+				'title' => 'واتس اپ',
+				'priority' => 1,
+				'panel' => 'headerItems'
+			]
+		);
+
+		self::addControl('link_whatsapp', 'text', "cyn_link_whatsapp", "لینک واتس اپ");
+
+		self::$wpCustomize->add_section(
 			'header_items_menu',
 			[
 				'title' => 'آیتم های منو',

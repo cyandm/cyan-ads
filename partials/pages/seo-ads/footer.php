@@ -8,6 +8,7 @@
  */
 
 use Cyan\Theme\Helpers\Templates;
+use Cyan\Theme\Helpers\Icon;
 
 
 Templates::getPopup('video');
@@ -26,7 +27,7 @@ $address_text = get_field('seo_address', $main_page[0]) ?? '';
 
 
 ?>
-<footer class="w-full bg-gradient-to-r from-[#032956]  via-[#032956] to-[#011844] pb-8 pt-12 text-white overflow-hidden">
+<footer class="w-full bg-gradient-to-r from-[#032956]  via-[#032956] to-[#011844] pb-16 pt-12 text-white overflow-hidden relative">
 	<div>
 		<div class="block sm:flex justify-between items-center relative">
 
@@ -134,7 +135,7 @@ $address_text = get_field('seo_address', $main_page[0]) ?? '';
 					</div>
 
 					<div class="max-md:w-[35%] max-mb:w-full md:hidden max-md:order-4">
-						<div class="text-right mb-12 flex flex-col gap-4">
+						<div class="text-right mb-12 max-md:mb-0 flex flex-col gap-4">
 
 							<div class="text-[#FFA5A5] text-xl font-medium md:hidden">مشاهده آدرس روی نقشه </div>
 
@@ -162,6 +163,9 @@ $address_text = get_field('seo_address', $main_page[0]) ?? '';
 			</div>
 		</div>
 	</div>
+
+	<?php Templates::getPart('whatsapp'); ?>
+
 </footer>
 
 <div id="wp-footer">

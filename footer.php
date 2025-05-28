@@ -11,6 +11,7 @@ use Cyan\Theme\Helpers\Templates;
 
 Templates::getPopup( 'video' );
 Templates::getPopup( 'backdrop' );
+Templates::getPart('whatsapp' );
 
 ?>
 

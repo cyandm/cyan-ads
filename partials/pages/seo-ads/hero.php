@@ -171,7 +171,7 @@ $subtitle_analyze_popup = get_field('subtitle_analyze_popup');
 				</div>
 
 				<div class="flex justify-normal items-center bg-white rounded-lg p-3 border-b-4 border-[#3CC9F5] border-r-4 cursor-pointer w-fit animate-border-pulse">
-					<a href="tell:<?php echo $btn_call_num ?>" class="text-[#00458A] flex items-center gap-2">
+					<a href="tel:<?php echo $btn_call_num ?>" class="text-[#00458A] flex items-center gap-2">
 						<div class="size-7 stroke-[1.5px]">
 							<div id="phone-animation" class="phone-animation"></div>
 						</div>

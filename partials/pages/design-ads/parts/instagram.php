@@ -75,7 +75,7 @@ use Cyan\Theme\Helpers\Icon;
                                data-pswp-width="<?php echo $actual_width ?>"
                                data-pswp-height="<?php echo $actual_height ?>">
                                 <div class="swiper-wrapper border border-white border-opacity-40 p-3">
-                                    <?php echo wp_get_attachment_image($instagram_image['image'], 'full', false, ['class' => 'object-cover object-center h-80 w-full']); ?>
+                                    <?php echo wp_get_attachment_image($instagram_image['image'], 'full', false, ['class' => 'object-cover object-center h-90 w-full']); ?>
 
                                     <p class="text-white mt-2 text-base font-normal"><?php echo $instagram_image['text']; ?></p>
                                     <p class="text-white mt-2 text-sm font-normal"><?php echo $instagram_image['desc']; ?></p>
