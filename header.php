@@ -49,7 +49,7 @@ $counseling_phone = get_option('cyn_header_phone_number');
 				<ul class="flex flex-col gap-5 whitespace-nowrap">
 
 					<li class="text-lg font-normal text-slate-800 duration-300">
-						<p class="cursor-pointer" modal-opener data-modal-name="analyze-form-modal">مشاوره سئو</p>
+						<p class="cursor-pointer" modal-opener data-modal-name="analyze-form-modal">درخواست مشاوره</p>
 					</li>
 
 					<?php for ($i = 1; $i <= 8; $i++): ?>
@@ -97,7 +97,7 @@ $counseling_phone = get_option('cyn_header_phone_number');
 			<ul class="flex gap-4 max-md:hidden">
 
 				<li class="text-base font-normal duration-300 <?php echo $header_args['menu_text_color']; ?>">
-					<p class="cursor-pointer" modal-opener data-modal-name="analyze-form-modal">مشاوره سئو</p>
+					<p class="cursor-pointer" modal-opener data-modal-name="analyze-form-modal">درخواست مشاوره</p>
 				</li>
 
 				<?php for ($i = 1; $i <= 8; $i++): ?>
