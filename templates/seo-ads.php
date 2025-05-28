@@ -23,4 +23,4 @@ Templates::getPage('seo-ads/faq');
 
 Templates::getPage('seo-ads/seo-comments');
 
-Templates::getPage(partial: 'seo-ads/footer');
+Templates::getPage('seo-ads/footer');
