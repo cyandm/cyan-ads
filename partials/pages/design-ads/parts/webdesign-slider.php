@@ -45,8 +45,7 @@ use Cyan\Theme\Helpers\Icon;
             </div>
         </div>
 
-        <swiper-container slides-per-view=1 space-between="5" loop="true" pagination="false"
-            navigation="true" navigation-next-el="#webNext" navigation-prev-el="#webPrev" class="w-full swiper-webdesign-level">
+        <swiper-container slides-per-view=1 space-between="5" loop="true" pagination="true" pagination-clickable="true" pagination-el="#website-pagination" navigation="true" navigation-next-el="#webNext" navigation-prev-el="#webPrev" class="w-full swiper-webdesign-level">
 
             <?php foreach ($webDesign_sliders as $webDesign_slider): ?>
 
@@ -65,6 +64,8 @@ use Cyan\Theme\Helpers\Icon;
             <?php endforeach; ?>
 
         </swiper-container>
+
+        <div id="website-pagination" class="flex gap-1 md:mt-10 max-md:mt-8 mb-3 justify-center [&>.swiper-pagination-bullet]:rounded-full [&>.swiper-pagination-bullet]:bg-[#FFFFFF]/60 [&>.swiper-pagination-bullet]:w-24 [&>.swiper-pagination-bullet]:h-[6px] [&>.swiper-pagination-bullet]:duration-500 [&>.swiper-pagination-bullet]:transition-all [&>.swiper-pagination-bullet.swiper-pagination-bullet-active]:bg-sky-400"></div>
 
     </div>
 
