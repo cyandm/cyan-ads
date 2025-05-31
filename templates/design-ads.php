@@ -45,14 +45,14 @@ get_header(null, array(
 
 </div>
 
-<footer class="mt-32">
-	<?php Templates::getPage('seo-ads/footer'); ?>
-</footer>
-
 <?php
 Templates::getPopup('video-design');
 Templates::getPopup('backdrop');
 ?>
+
+<footer class="mt-32">
+	<?php Templates::getPage('seo-ads/footer'); ?>
+</footer>
 
 
 <div id="wp-footer">
