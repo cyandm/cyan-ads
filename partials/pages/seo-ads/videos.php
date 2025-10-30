@@ -2,23 +2,28 @@
 
 use Cyan\Theme\Helpers\Icon;
 
-
+function isVideoActive($video)
+{
+	return !empty($video['cover']) && !empty($video['file']) && !empty($video['title']) && !empty($video['sub_title']);
+}
 
 $videos = [];
 
 for ($i = 1; $i <= 10; $i++) {
-
-	array_push($videos, [
+	$video = [
 		'cover' => get_field("video_cover_$i"),
 		'file' => get_field("video_file_$i"),
 		'title' => get_field("title_$i"),
 		'sub_title' => get_field("sub_title_$i"),
-	]);
+	];
+
+	if (isVideoActive($video)) {
+		array_push($videos, $video);
+	}
 }
 
-function isVideoActive($video)
-{
-	return ! empty($video['cover']) || ! empty($video['file']) || ! empty($video['title']) || ! empty($video['sub_title']);
+if (empty($videos)) {
+	return;
 }
 
 ?>
@@ -27,15 +32,11 @@ function isVideoActive($video)
 
 	<div class="container space-y-4">
 
-
-
 		<div class="flex flex-row justify-between">
-			<!-- Title -->
 			<div class="text-white text-xl md:text-4xl">
 				<?php echo get_field('videos_title') ?>
 			</div>
 
-			<!-- Navigation -->
 			<div class="flex gap-2">
 
 				<button id="videosPrev"
@@ -78,27 +79,23 @@ function isVideoActive($video)
 						<div
 							class="border border-y-white/50 border-x-[#99999980] rounded-xl bg-white/20 flex flex-row justify-end items-center gap-[18px] h-[12rem]">
 
-							<!-- Image -->
 							<div>
 								<?php echo wp_get_attachment_image($video['cover'], 'full', false, ['class' => 'object-cover object-center w-64 h-48 rounded-r-xl ']) ?>
 							</div>
 
-							<!-- Content -->
 							<div class="space-y-4 px-3 w-full">
 								<div class="space-y-3">
-									<!-- Name -->
+
 									<div class="text-white text-base">
 										<?php echo $video['title'] ?>
 									</div>
 
-									<!-- Position -->
 									<div class="text-[#27BFEF] text-sm">
 										<?php echo $video['sub_title'] ?>
 									</div>
 								</div>
 
 
-								<!-- Button -->
 								<div>
 									<button
 										class="PopUpOpener rounded-full flex gap-1 transition-all duration-300 cursor-pointer bg-[#E8E9EA] hover:bg-[#D0D1D2]">

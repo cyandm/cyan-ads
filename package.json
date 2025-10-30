@@ -1,6 +1,6 @@
 {
   "name": "cyan-ads",
-  "version": "2.2.2",
+  "version": "2.2.4",
   "description": "A custom WordPress theme designed to provide a flexible and easy-to-use framework for developers.",
   "main": "index.php",
   "scripts": {

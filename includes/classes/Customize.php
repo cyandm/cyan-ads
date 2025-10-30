@@ -18,7 +18,6 @@ class Customize
 		add_action('customize_register', [__CLASS__, 'register']);
 	}
 
-
 	public static function register($wp_customize)
 	{
 		self::$wpCustomize = $wp_customize;
@@ -157,6 +156,7 @@ class Customize
 
 		self::addControl('form_phone_call', 'text', "cyn_form_phone_number", "شماره تماس");
 	}
+
 	private static function registerPanelCustomCode()
 	{
 		self::$wpCustomize->add_panel(

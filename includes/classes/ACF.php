@@ -37,6 +37,7 @@ class ACF
 		self::forDesignAds();
 		self::forPortfolio();
 		self::forPlan();
+		self::forPost();
 	}
 
 	private static function forSeoAds()
@@ -664,5 +665,16 @@ class ACF
 
 		$acfGroup->register('تعرفه');
 		#endregion
+	}
+
+	private static function forPost()
+	{
+		$acfGroup = new AcfGroup();
+
+		$acfGroup->contentFields->addTextEditor('subtitle', 'تیکه متن کنار عکس (لطفا این تیکه متن را از قسمت ادیتور وردپرس حذف کنید که از تکرار جلوگیری شود)');
+
+		$acfGroup->setLocation('post_type', '==', 'post');
+
+		$acfGroup->register('subtitle');
 	}
 }

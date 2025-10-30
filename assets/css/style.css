@@ -145,7 +145,7 @@
     background-size: cover;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .bg-under-sea {
       background-image: url("../../image/under-sea.webp");
     }
@@ -153,7 +153,7 @@
 }
 
 .swiper-webdesign-level .swiper-button-prev {
-  right: 1000px !important;
+  right: 62.5rem !important;
 }
 
 .flip {
@@ -188,8 +188,8 @@
 
 .flip button,
 .flip .front-content {
-  transform: translateZ(48px);
-  text-shadow: 0 0 3px black;
+  transform: translateZ(3rem);
+  text-shadow: 0 0 0.1875rem black;
 }
 
 .flip::before,
@@ -203,7 +203,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  transform: rotateY(180deg) translateZ(1px);
+  transform: rotateY(180deg) translateZ(0.0625rem);
 }
 
 .flip::before {
@@ -211,4 +211,72 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.single-post h1 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.single-post p {
+  line-height: 1.625rem !important;
+}
+
+.single-post .content h2,
+.single-post .content h3,
+.single-post .content h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.single-post .content p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #bcbfc9;
+  margin-bottom: 1.5rem;
+}
+
+.single-post .content div.gallery,
+.single-post .content > img,
+.single-post .content p img {
+  margin-block: 1.5rem;
+  width: 100%;
+}
+
+.single-post .content img {
+  border-radius: 1.5rem;
+}
+
+.single-post .content .gallery {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .single-post .content .gallery {
+    flex-direction: column;
+  }
+}
+
+.single-post .content .gallery .gallery-item {
+  width: 33%;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .single-post .content .gallery .gallery-item {
+    width: 100%;
+  }
+}
+
+.single-post .content .gallery .gallery-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1.5rem;
 }
